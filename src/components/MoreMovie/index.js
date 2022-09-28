@@ -1,0 +1,1 @@
+export {MoreMovie} from './MoreMovie'
