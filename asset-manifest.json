@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/MainMovies/static/js/main.b66c8478.js",
+    "main.js": "/MainMovies/static/js/main.67ca74d1.js",
     "static/media/space.jpg": "/MainMovies/static/media/space.0adef0cf4d2170370395.jpg",
     "static/media/human.png": "/MainMovies/static/media/human.77e5ab5b88bee8659dc3.png",
     "static/media/Top-Gun.jpg": "/MainMovies/static/media/Top-Gun.77298e8c3373f6b272f3.jpg",
@@ -11,9 +11,9 @@
     "static/media/error.svg": "/MainMovies/static/media/error.cd83b8aff0b91a600a6ae37f05f7d3bf.svg",
     "static/media/human-error.svg": "/MainMovies/static/media/human-error.21623db0f557d3256cfa2b58ec05d228.svg",
     "index.html": "/MainMovies/index.html",
-    "main.b66c8478.js.map": "/MainMovies/static/js/main.b66c8478.js.map"
+    "main.67ca74d1.js.map": "/MainMovies/static/js/main.67ca74d1.js.map"
   },
   "entrypoints": [
-    "static/js/main.b66c8478.js"
+    "static/js/main.67ca74d1.js"
   ]
 }
