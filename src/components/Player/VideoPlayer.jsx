@@ -56,20 +56,22 @@ const VideoPlayer = ({url}) => {
 		playbackRate: 1.0,
 		volume: 0.1,
 		seeking: false,
+		isFullscreen: false
 	});
 	const {isPlay, playbackRate, played, controls, volume} = state;
 	const playerRef = useRef(null);
 	const controlsRef = useRef(null);
 	const playerContainerRef = useRef(null);
+	const ios = !window.MSStream && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 	useEffect(() => {
-		if(trailerPopup){
-			setTimeout(() => {
-				setState({ ...state, isPlay: true });
-			}, 800);
-		}else{
-			setState({ ...state, isPlay: false });
-		};
+			if(trailerPopup && !ios){
+				setTimeout(() => {
+					setState({ ...state, isPlay: true });
+				}, 800);
+			}else{
+				setState({ ...state, isPlay: false });
+			};
 		// eslint-disable-next-line
 	}, [trailerPopup]);
 
@@ -97,7 +99,20 @@ const VideoPlayer = ({url}) => {
 		}
 	};
 
-	const toggleFullScreen = () => screenful.toggle(playerContainerRef.current);
+
+	const toggleFullScreen = () => {
+		setState({ ...state, isFullscreen: !state.isFullscreen});
+
+		if(!ios){
+			screenful.toggle(playerContainerRef.current);
+		}else{
+			if (!state.isFullscreen) {
+				playerContainerRef.current.webkitEnterFullscreen();
+			} else {
+				playerContainerRef.current.webkitRequestFullscreen();
+			}
+		}
+	};
 
 	const currentTime = playerRef && playerRef.current ? playerRef.current.getCurrentTime() : "00:00";
 
@@ -114,6 +129,7 @@ const VideoPlayer = ({url}) => {
 				url={url}
 				playing={isPlay}
 				volume={volume}
+				loop={true}
 				ref={playerRef}
 				controls={controls}
 				playbackRate={playbackRate}

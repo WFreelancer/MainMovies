@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 `
-const Main = styled.div`
+const Main = styled.main`
 	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;

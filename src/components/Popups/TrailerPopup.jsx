@@ -1,8 +1,9 @@
+import {lazy} from 'react'
 import styled from 'styled-components'
 import {useData} from '../../Context'
 
-import {VideoPlayer} from '../Player'
 import { IoCloseSharp } from "react-icons/io5";
+const Player = lazy(() => import('../Player'));
 
 const Popup = styled.div`
 	position: fixed;
@@ -116,7 +117,7 @@ const TrailerPopup = ({url}) => {
 					<PopupClose onClick={() => setTrailerPopup(!trailerPopup)}>
 						<IconClose size="100%"/>
 					</PopupClose>
-					<VideoPlayer url={url}/>
+					<Player url={url}/>
 				</PopupContent>
 			</PopupBody>
 		</Popup>

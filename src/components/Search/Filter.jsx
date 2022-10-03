@@ -40,7 +40,7 @@ const List = styled(motion.div)`
 
 const Filter = () => {
 	const { animationContent, handleСheckbox, dataFilters, filter} = useData();
-	
+
 	return(
 		<FilterWrapper initial="hidden" whileInView="visible" viewport={{once: true, amount: 0.2}}>
 			<Container>

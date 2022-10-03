@@ -1,9 +1,10 @@
-import {useEffect} from 'react'
-import {Hero} from '../components/Hero'
-import { Filter } from "../components/Search";
-import {MoreMovie} from '../components/MoreMovie'
-import {Form} from '../components/Form'
-import {Slider} from '../components/Slider'
+import {useEffect, lazy} from 'react'
+
+const LazyHero = lazy(() => import('../components/Hero'));
+const LazyFilter = lazy(() => import('../components/Search'));
+const LazyMoreMovies = lazy(() => import('../components/MoreMovie'));
+const LazySlider = lazy(() => import('../components/Slider'));
+const LazyForm = lazy(() => import('../components/Form'));
 
 const Home = () => {
 	useEffect(() => {
@@ -13,11 +14,11 @@ const Home = () => {
 	
 	return(
 		<>
-			<Hero request="Top Gun"/>
-			<Filter/>
-			<MoreMovie/>
-			<Slider request="Spider-Man" title="Popular"/>
-			<Form/>
+			<LazyHero request="Top Gun"/>
+			<LazyFilter/>
+			<LazyMoreMovies/>
+			<LazySlider request="Spider-Man" title="Popular"/>
+			<LazyForm/>
 		</>
 	) 
 }

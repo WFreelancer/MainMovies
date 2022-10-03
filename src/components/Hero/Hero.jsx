@@ -7,6 +7,7 @@ import {TrailerPopup} from '../Popups'
 
 import {MButton} from '../Button'
 import poster from '../../assets/images/Top-Gun.jpg';
+import posterMobile from '../../assets/images/top-gan-mobile2.jpeg';
 
 const HeroWrapper = styled(motion.section)`
 	position: relative;
@@ -110,7 +111,7 @@ const HeroImage = styled(motion.picture)`
 
 const Hero = ({request}) => {
 	const {animationContent , animationImage, handleHero, hero, trailerPopup, setTrailerPopup} = useData();
-	const {poster_path, title, overview, id} = hero;
+	const {title, overview, id} = hero;
 
 	useEffect(() => {
 		handleHero(request);
@@ -120,7 +121,7 @@ const Hero = ({request}) => {
 	return (
 		<HeroWrapper initial="hidden" whileInView="visible" viewport={{once: true, amount: 0.2}}>
 			<HeroImage variants={animationImage}>
-				<motion.source srcSet={'https://image.tmdb.org/t/p/w500' + poster_path} media="(max-width: 500px)"/>
+				<motion.source srcSet={posterMobile} media="(max-width: 500px)"/>
 				<motion.img src={poster} alt={title}/>
 			</HeroImage>
 			<Content>

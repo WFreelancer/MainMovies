@@ -2,7 +2,7 @@
   "name": "movie",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wfreelancer.github.io/MainMovies",
+  "homepage": "https://wfreelancer.github.io/MainMovies/",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",

@@ -90,7 +90,6 @@ const DataProvider = ({children}) => {
 			setMoviesFiltered(movies);
 			return;
 		}
-
 		setMoviesFiltered(movies.filter(movie => movie.genre_ids.includes(id)))
 	}
 

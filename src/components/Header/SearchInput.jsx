@@ -48,7 +48,7 @@ const SearchLabel = styled.label`
 	@media (max-width: 1024px){
 		position: absolute;
 		top: 40px;
-		right: -50px;
+		right: 0px;
 		height: 40px;
 		margin-right: 0;
 		width: 350px;
@@ -59,11 +59,17 @@ const SearchLabel = styled.label`
 		box-shadow: var(--shadow);
 	}
 
-	@media (max-width: 400px){
-		width: 280px;
-	}
+	@media (max-width: 480px){
+		width: 300px;
+		right: -50px;
+	};
+
 `
-const Input = styled.input`
+const Input = styled.input.attrs(({ search }) => ({
+	value: search,
+	type: 'search',
+	placeholder: 'Search movie'
+}))`
 	font-size: 16px;
 	position: absolute;
 	width: 100%;
@@ -110,20 +116,21 @@ const Input = styled.input`
 const SearchInput = () => {
 	const {search, setSearch, openSearch, setOpenSearch, toggleSearch} = useData();
 
+
+
 	useEffect(() => {
-		document.querySelector('body').addEventListener('click', () => {
+		document.querySelector('main').addEventListener('click', () => {
 			if(openSearch){
-				setOpenSearch(false)
+				setOpenSearch(false);
 			}
-			return false;
 		})
 		// eslint-disable-next-line
-	}, [])
+	}, [openSearch])
 
 	return (
 		<MenuSearch noValidate="on" onClick={(e) => e.stopPropagation()}>
-			<SearchLabel active={openSearch}>
-				<Input value={search} type='search' placeholder='Search movie' onChange={(e) => setSearch(e.target.value)}/>
+			<SearchLabel active={openSearch} >
+				<Input search={search} onChange={(e) => setSearch(e.target.value)}/>
 			</SearchLabel>
 			<IoSearch onClick={toggleSearch}/>
 		</MenuSearch>

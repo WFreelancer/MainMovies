@@ -10,7 +10,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: 'var(--bg-pink)',
+      main: '#F73A4C',
     },
   },
 });

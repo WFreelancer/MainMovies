@@ -1,3 +1,4 @@
+import React from 'react'
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -7,6 +8,7 @@ const FixedNav = styled.nav`
 	right: 0;
 	top: 0;
 	height: 100%;
+	min-height: 100vh;
 	background: var(--bg-dark);
 	z-index: 11;
 	transform: translate(calc(100% + 6vw),0) rotate(0.001deg);
@@ -187,7 +189,7 @@ const RoundedDiv = styled.div`
 `
 
 
-const FixedMenu = ({menuOpen, setMenuOpen, links}) => {
+const FixedMenu = React.memo(({menuOpen, setMenuOpen, links}) => {
 	return(
 		<FixedNav menuOpen={menuOpen} onClick={(e) => e.stopPropagation()}>
 			<FixedNavContent>
@@ -214,6 +216,6 @@ const FixedMenu = ({menuOpen, setMenuOpen, links}) => {
 			</FixedRoundedWrapper>
 		</FixedNav>
 	)
-}
+})
 
 export {FixedMenu}

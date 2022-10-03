@@ -1,9 +1,11 @@
-import { useEffect } from 'react';
+import React, { useEffect} from 'react';
 import styled from 'styled-components';
-
+import {useData} from '../../Context'
 import {Magnetic} from './Magnetic'
 
-const BurgerWrapper = styled.div`
+const BurgerWrapper = styled.button`
+	will-change: transform;
+	background: transparent;
 	position: fixed;
 	top: 30px;
 	right: 30px;
@@ -11,6 +13,7 @@ const BurgerWrapper = styled.div`
 	cursor:pointer;
 	transform: translateY(0%) scale(0) rotate(0.001deg);
 	transition: transform 0.4s cubic-bezier(0.36, 0, 0.66, 0) 0s;
+
 	@media (min-width: 1800px){
 		top: 50px;
 		right: 50px;
@@ -20,6 +23,7 @@ const BurgerWrapper = styled.div`
 		top: 20px;
 		right: 20px;
 	};
+	
 	${({showIcon, menuOpen}) => (showIcon || menuOpen) &&`
 		transform: translateY(0%) scale(1) rotate(0.001deg);
 		transition: transform 0.4s cubic-bezier(0.34, 1.5, 0.64, 1) 0s;
@@ -112,10 +116,22 @@ const HoverEl = styled.div`
 	}
 `
 
-const BurgerFixed = ({menuOpen, setMenuOpen, showIcon}) => {
+const BurgerFixed = React.memo(({menuOpen, setMenuOpen}) => {
+	const {showIcon, setShowIcon} = useData();
+
+	const fixedBurger = () => {
+		window.scrollY > 200 ? setShowIcon(true) : setShowIcon(false)
+	}
+
 	useEffect(() => {
 		Magnetic();
-	}, [])
+		window.scrollY > 200 ? setShowIcon(true) : setShowIcon(false)
+		document.addEventListener('scroll', fixedBurger);
+
+		return () => document.removeEventListener('scroll', fixedBurger);
+		// eslint-disable-next-line
+	}, []);
+
 	return (
 		<BurgerWrapper showIcon={showIcon} menuOpen={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
 			<BurgerBody  menuOpen={menuOpen} data-button-animation>
@@ -124,6 +140,6 @@ const BurgerFixed = ({menuOpen, setMenuOpen, showIcon}) => {
 			</BurgerBody>
 		</BurgerWrapper>
 	)
-}
+})
 
 export {BurgerFixed}

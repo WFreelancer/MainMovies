@@ -100,33 +100,34 @@ const Form = () => {
 					<FormList>
 						<motion.li variants={animationContent} custom={3}>
 							<CustomInput
-								{...register("firstName")}
+								label="FirstName"
+								name="firstName"
+								type="text"
+								register={register}
 								error={!!errors?.firstName}
 								helperText={errors?.firstName?.message}
-							>
-								First Name
-							</CustomInput>
+							/>
 						</motion.li>
 						<motion.li variants={animationContent} custom={4}>
 							<CustomInput
-								{...register("email")}
+								label="Email"
+								name="email"
+								type="text"
+								register={register}
 								error={!!errors?.email}
 								helperText={errors?.email?.message}
-							>
-								Email
-							</CustomInput>
+							/>
 						</motion.li>
 						<motion.li variants={animationContent} custom={5}>
 							<CustomInput
-								textarea="true"
-								{...register("message")}
+								label="Your Message"
+								name="message"
+								type="textarea"
+								register={register}
 								error={!!errors?.message}
 								helperText={errors?.message?.message}
-							>
-								Your Message
-							</CustomInput>
+							/>
 						</motion.li>
-						{/* <CustomInput name="firstName" label="First Name" register={register} rules={{ required: "Please enter your First name." }} error={errors?.firstName}/>*/}
 					</FormList>
 					<MButton button="true" type="submit" light="true" variants={animationContent} custom={4}>
 						Send

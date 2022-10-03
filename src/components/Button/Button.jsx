@@ -10,6 +10,7 @@ const CustomLink = styled(NavLink)`
 	position:relative;
 	min-width: 160px;
 	display: inline-flex;
+	align-items: center;
 	justify-content: center;
 	border-radius: 2.125em;
 	padding: 1.05em 0;
@@ -69,6 +70,7 @@ const CustomButton = styled.button`
 	position:relative;
 	min-width: 170px;
 	display: inline-flex;
+	align-items: center;
 	justify-content: center;
 	border-radius: 2.125em;
 	padding: 1.05em 0;

@@ -88,12 +88,12 @@ const Info = styled.div`
 	}
 `
 const CardSm = forwardRef((props, ref) => {
-	const {poster_path, title, id, release_date, dark} = props;
+	const {backdrop_path, title, id, release_date, dark} = props;
 
 	return(
 		<CardWrapper dark={dark} ref={ref} to={`/movie/${id}`}>
 			<Figure>
-				<img src={poster_path ? 'https://image.tmdb.org/t/p/w500' + poster_path : error} alt={title} />
+				<img src={backdrop_path ? 'https://image.tmdb.org/t/p/w500' + backdrop_path : error} alt={title} />
 				 <Figcaption>
 					<Body>
 						<TitleEl>{title}</TitleEl>

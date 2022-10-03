@@ -10,6 +10,7 @@ const CheckboxLabel = styled.label`
 	-moz-user-select: none; /* Firefox */
 	overflow: hidden;
 	border-radius: 2.125em;
+	box-shadow: ${({dark}) => dark ? `inset 0px 0px 0px 1px var(--color-border-dark)` : `inset 0px 0px 0px 1px var(--white)`};
 `
 
 const CheckboxText = styled.span`
@@ -21,7 +22,7 @@ const CheckboxText = styled.span`
 	padding: 1.05em 2.05em;
 	overflow: hidden;
 	color: ${({dark}) => dark ? `var(--bg-dark)` : `var(--white)`};
-	box-shadow: ${({dark}) => dark ? `inset 0px 0px 0px 1px var(--color-border-dark)` : `inset 0px 0px 0px 1px var(--white)`};
+	
 	z-index: 3;
 	transition: color 0.3s ease;
 
@@ -78,7 +79,7 @@ const Checkbox = forwardRef((props, ref) => {
 	} = props;
 
 	return(
-		<CheckboxLabel ref={ref}>
+		<CheckboxLabel ref={ref} dark={dark}>
 			<CheckboxInput dark={dark} type={type} name={name.toLowerCase()} value={name} checked={filter === id} onChange={() => handleСheckbox(id)}/>
 			<CheckboxText dark={dark}>{children}</CheckboxText>
 			<HoverEl dark={dark}></HoverEl>

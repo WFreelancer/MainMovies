@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import styled from 'styled-components';
 import {useData} from '../../Context'
 
@@ -44,25 +43,7 @@ const links = [
 ]
 
 const HeaderTop = () => {
-	const {menuOpen, setMenuOpen, showIcon, setShowIcon} = useData();
-
-	useEffect(() => {
-		if (window.scrollY > 200) {
-			setShowIcon(true);
-		} else {
-			setShowIcon(false);
-		}
-
-		document.addEventListener('scroll', () => {
-			if (window.scrollY > 200) {
-				setShowIcon(true);
-			} else {
-				setShowIcon(false);
-			}
-		});
-		// eslint-disable-next-line
-	}, [])
-
+	const {menuOpen, setMenuOpen} = useData();
 	return (
 		<HeaderTopWrapper>
 			<Container>
@@ -73,7 +54,7 @@ const HeaderTop = () => {
 						<SearchInput/>
 						<Burger menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
 						<FixedMenu menuOpen={menuOpen} links={links} setMenuOpen={setMenuOpen}/>
-						<BurgerFixed showIcon={showIcon} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+						<BurgerFixed menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
 						<Overlay active={menuOpen} setMenuOpen={setMenuOpen}/>
 					</HeaderBody>
 				</HeaderContent>

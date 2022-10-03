@@ -10,10 +10,15 @@ const GlobalStyle = createGlobalStyle`
 		padding: 0px;
 		margin: 0px;
 		border: 0px;
+
+	}
+	
+	input[type=checkbox],
+	button,
+	a{
 		-webkit-tap-highlight-color: transparent;
         -webkit-focus-ring-color: transparent;
         -webkit-touch-callout: none;
-        -webkit-user-select: none;
         -khtml-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
@@ -84,6 +89,7 @@ const GlobalStyle = createGlobalStyle`
 
 	button {
 		font-size: inherit;
+		line-height: inherit;
 		cursor: pointer;
 	}
 

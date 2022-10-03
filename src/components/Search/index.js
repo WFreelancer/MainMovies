@@ -1,2 +1,2 @@
 export {Search} from './Search'
-export {Filter} from './Filter'
+export {Filter as default} from './Filter'
